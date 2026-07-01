@@ -77,4 +77,4 @@ python -m mcp_servers.observability_mcp
 
 ## Author
 
-Omar - super.bizz217@gmail.com
+Omar - supax82@gmail.com
