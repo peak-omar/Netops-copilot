@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetOps Copilot</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark">OMAR</span>
+      <span class="divider"></span>
+      <span class="product">NetOps Copilot</span>
+      <span class="tag">Network automation &amp; AI</span>
+    </div>
+    <div class="scenario">
+      <span id="scenarioBadge" class="badge badge-ok">● all systems nominal</span>
+      <button id="injectBtn" class="btn btn-danger">Inject P1 outage</button>
+      <button id="resolveBtn" class="btn btn-ghost" hidden>Resolve incident</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Chat column -->
+    <section class="chat">
+      <div id="messages" class="messages"></div>
+
+      <div class="examples">
+        <span class="examples-label">Try:</span>
+        <button class="chip" data-q="Can 10.20.4.12 reach 10.30.5.10 on port 5432?">connectivity check</button>
+        <button class="chip" data-q="Is checkout_vip created and healthy?">VIP health</button>
+        <button class="chip" data-q="Is checkout_pool healthy? How many members are up?">pool health</button>
+        <button class="chip chip-p1" data-q="P1 - checkout is down. Find the root cause across firewall, F5, AKS and Splunk.">P1 root-cause</button>
+      </div>
+
+      <form id="composer" class="composer">
+        <input id="input" autocomplete="off" placeholder="Ask about connectivity, a VIP/pool, or a P1 outage..." />
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- Inspector column -->
+    <aside class="inspector">
+      <div class="inspector-head">
+        <h2>Agent activity</h2>
+        <button id="graphBtn" class="btn btn-ghost btn-sm">View orchestration graph</button>
+      </div>
+      <div id="trace" class="trace">
+        <p class="muted">Tool calls show up here as the agents run, one row per step.</p>
+      </div>
+      <div id="artifacts"></div>
+    </aside>
+  </main>
+
+  <!-- Graph modal -->
+  <div id="graphModal" class="modal" hidden>
+    <div class="modal-body">
+      <div class="modal-head">
+        <h3>LangGraph orchestration</h3>
+        <button id="graphClose" class="btn btn-ghost btn-sm">Close</button>
+      </div>
+      <div id="graphContent" class="graph-content">loading...</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

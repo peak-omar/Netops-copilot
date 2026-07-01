@@ -1,0 +1,18 @@
+# --- Web + API layer ---
+fastapi>=0.110
+uvicorn[standard]>=0.29
+httpx>=0.27
+python-dotenv>=1.0
+pydantic>=2.6
+
+# --- Agent orchestration ---
+langgraph>=0.2.60
+langchain-core>=0.3.28
+langchain-openai>=0.2.14
+openai>=1.55
+
+# --- RAG (in-memory vector store) ---
+numpy>=1.26
+
+# --- MCP servers (optional, for the standalone MCP artifacts) ---
+mcp>=1.2.0
