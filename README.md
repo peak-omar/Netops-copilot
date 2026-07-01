@@ -1,6 +1,10 @@
 # NetOps Copilot
 
-A multi-agent assistant for network operations. It does two things:
+A multi-agent assistant for network operations.
+
+![demo](media/demo.gif)
+
+It does two things:
 
 1. **Self-service checks** for non-technical teams: ask in plain English whether a
    source can reach a destination, or whether a VIP/pool is healthy, and get a
